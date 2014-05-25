@@ -73,7 +73,7 @@ namespace pcl
         void (*theLogger)(String);
         int ConnectCamera( );
         int DisconnectCamera( );
-
+        bool connected;
     };
 
 }

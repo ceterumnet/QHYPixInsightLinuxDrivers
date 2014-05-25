@@ -126,16 +126,18 @@ namespace pcl
 
     bool QHY5_ii_Camera::Connected()
     {
-        return false;
+        return connected;
     }
 
     int QHY5_ii_Camera::ConnectCamera()
     {
+        SetConnected(true);
         return -1;
     }
 
     int QHY5_ii_Camera::DisconnectCamera()
     {
+        connected = false;
         CloseCamera();
         return -1;
     }
@@ -144,18 +146,18 @@ namespace pcl
     {
         if(connectCamera) {
             stat.status = OpenCameraByID(DEVICETYPE_QHY5LII);
-
             if(stat.status == 0) {
                 throw Error("No camera found - please connect camera and try again");
             }
             SetTransferBit(cam.bpp);
-
-            SetGain(cam.gain);
-
             SetSpeed(false);
             SetUSBTraffic(255);//0-255 increase the value will reduce the speed.
+            SetGain(cam.gain);
             BeginLive();
+            connected = true;
+
         } else {
+            connected = false;
             CloseCamera();
         }
 
