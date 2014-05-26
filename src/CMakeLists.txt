@@ -23,3 +23,4 @@ file(GLOB all_HEADERS "*.hpp" "*.h")
 source_group("headers" FILES ${all_HEADERS})
 
 add_subdirectory("qhy5_ii")
+add_subdirectory("qhy5_ii_raw")

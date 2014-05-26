@@ -1,15 +1,15 @@
-#ifndef QHY5_II
-#define QHY5_II
+#ifndef QHY5_II_RAW
+#define QHY5_II_RAW
 
 #include <IPixInsightCamera.h>
 
 namespace pcl
 {
 
-    class QHY5_ii_Camera : public IPixInsightCamera
+    class QHY5_ii_raw_Camera : public IPixInsightCamera
     {
     public:
-        QHY5_ii_Camera();
+        QHY5_ii_raw_Camera();
         virtual void Dispose();
         virtual void SetLogger(void(*)(String));
         virtual short BinX();
